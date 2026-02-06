@@ -7,7 +7,7 @@ git clone repo-url
 ```bash
 cd marketing_campaign_tool
 ```
-- Copy .env
+- Create .env from .env.example
 ```bash
 cp .env.example .env
 ```
