@@ -11,11 +11,11 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {return view('dashboard');})->middleware('verified')->name('dashboard');
+    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::resource('/campaigns', CampaignController::class)->except(['show']);
     Route::resource('/landings', LandingController::class);
 });
 
-Route::get('/campaigns/{slug}', [PublicCampaignController::class, 'show'])->name('campaign.show');
+Route::get('/campaigns/{slug}', [PublicCampaignController::class, 'show'])->name('public.campaign.show');
 
 require __DIR__.'/auth.php';
