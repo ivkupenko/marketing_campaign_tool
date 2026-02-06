@@ -17,4 +17,9 @@ class Landing extends Model
     {
         return $this->belongsTo(Campaign::class);
     }
+
+    public function actionClicks()
+    {
+        return $this->hasMany(ActionClick::class);
+    }
 }
