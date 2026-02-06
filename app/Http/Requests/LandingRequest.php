@@ -45,6 +45,11 @@ class LandingRequest extends FormRequest
                 Landing::where('campaign_id', $this->input('campaign_id'))->where('is_catch_all', true)->exists()) {
                     $validator->errors()->add('is_catch_all', 'A catch-all landing page already exists for this campaign.');
             }
+
+            if ($this->input('country') !== null &&
+                Landing::where('country', $this->input('country'))->where('campaign_id', $this->input('campaign_id'))->exists()) {
+                    $validator->errors()->add('country', 'A landing page for this country already exists for this campaign.');
+            }
         });
     }
 }
