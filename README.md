@@ -21,7 +21,7 @@ npm install
 ```bash
 npm run build
 ```
-- Start docer containers
+- Start Docker containers
 ```bash
 docker-compose up -d
 ```
