@@ -1,0 +1,57 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Campaigns') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <x-primary-button class="ml-3 mb-4">
+            <a href="{{ route('campaigns.create') }}">
+                {{ __('Create Campaign') }}
+            </a>
+        </x-primary-button>
+        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow">
+                        <thead class="bg-gray-100 border-b">
+                            <tr>
+                                <th class="px-4 py-2 text-left">Title</th>
+                                <th class="px-4 py-2 text-left">Slug</th>
+                                <th class="px-4 py-2 text-left">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($campaigns as $campaign)
+                                <tr class="border-b hover:bg-gray-50">
+                                    <td class="px-4 py-2">{{ $campaign->title }}</td>
+                                    <td class="px-4 py-2">{{ $campaign->slug }}</td>
+
+                                    <td class="px-4 py-2 text-center flex gap-2">
+                                        <x-nav-link href="{{ route('campaigns.edit', $campaign) }}">
+                                            {{ __('Edit') }}
+                                        </x-nav-link>
+                                        
+                                        <form method="POST" action="{{ route('campaigns.destroy', $campaign) }}">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit">
+                                                {{ __('Delete') }}
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4" class="text-center py-4 text-gray-500">No campaigns found.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
