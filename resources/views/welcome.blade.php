@@ -13,8 +13,14 @@
 <div class="container" style="text-align: center; padding: 100px;">
     <h1>Welcome</h1>
     <p>The Marketing Campaigns Management Tool</p>
-    <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
-    <a href="{{ route('landing.index') }}" class="btn btn-secondary">Continue without authorization</a>
+    <a href="{{ route('login') }}" class="btn btn-primary">Login as Admin</a>
+    <br><br>
+    <a href="http://localhost:8088/campaigns/christmas?country=ES">Try Christmas ES landing</a><br>
+    <a href="http://localhost:8088/campaigns/christmas">Try Christmas for all countries landing</a><br>
+    <a href="http://localhost:8088/campaigns/black-friday?country=US">Try Black Friday US landing</a><br>
+        <a href="http://localhost:8088/campaigns/black-friday">Try not exists Black Friday for all countries landing</a>
+
+
 </div>
 
 <footer style="position: fixed; bottom: 0; width: 100%; text-align: center; padding: 10px; background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
