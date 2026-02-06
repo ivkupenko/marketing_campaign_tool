@@ -24,15 +24,13 @@ services:
       - mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: crud
-      MYSQL_USER: laravel
-      MYSQL_PASSWORD: laravel
+      MYSQL_DATABASE: marketing_campaigns
     ports:
       - "3306:3306"
 
   phpmyadmin:
     image: arm64v8/phpmyadmin
-    container_name: db_myadmin
+    container_name: php_myadmin
     restart: always
     ports:
       - "8080:80"
