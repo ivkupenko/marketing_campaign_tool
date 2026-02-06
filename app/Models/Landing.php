@@ -9,7 +9,7 @@ class Landing extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'country', 'campaign_id', 'is_catch_all', 'html'];
+    protected $fillable = ['title', 'country', 'campaign_id', 'is_catch_all', 'html', 'action_url'];
 
     protected $casts = ['is_catch_all' => 'boolean',];
 

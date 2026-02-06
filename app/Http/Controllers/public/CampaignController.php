@@ -17,6 +17,11 @@ class CampaignController extends Controller
         $landing = Landing::where('campaign_id', $campaign->id)->where('country', $country)->first()
             ?? Landing::where('campaign_id', $campaign->id)->where('is_catch_all', true)->firstOrFail();
 
-        return response($landing->html);
+        $trackUrl = route('track.click', ['landing' => $landing->id]);
+
+        $finalHtml = str_replace('{{ action }}', $trackUrl, $landing->html);
+
+
+        return response($finalHtml);
     }
 }

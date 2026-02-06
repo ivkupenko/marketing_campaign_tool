@@ -33,7 +33,11 @@
                             <label for="is_catch_all_false">No</label>
                         </div>
 
+                        <label for="html" class="block font-medium text-sm text-gray-700">{{ __('Landing HTML') }}</label>
                         <textarea id="html" name="html" class="mt-1 block w-full" style="height:300px;">{{ old('html', $landing->html) }}</textarea>
+
+                        <x-input-label for="action_url" :value="__('Action URL')" />
+                        <x-text-input id="action_url" name="action_url" type="text" class="mt-1 block w-full" value="{{ old('action_url', $landing->action_url) }}" />
                     </div>
                     <x-primary-button type="submit" class="ml-3 mb-4">
                         {{ __('Update') }}

@@ -28,6 +28,7 @@ class LandingRequest extends FormRequest
             'campaign_id' => 'required|exists:campaigns,id',
             'is_catch_all' => 'required|boolean',
             'html' => 'required|string',
+            'action_url' => 'string|max:255|nullable',
         ];
     }
 

@@ -28,13 +28,14 @@ class LandingsSeeder extends Seeder
                     <body>
                         <h1>Join Us This Christmas in Spain</h1>
                         <p>Fill the form below to continue.</p>
-                        <form method="GET">
+                        <form method="GET" action="{{ action }}">
                             <button type="submit">Continue</button>
                         </form>
                     </body>
                     </html>',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'action_url' => 'https://christmas.es/continue'
             ],
             [
                 'campaign_id' => $christmasId,
@@ -51,13 +52,14 @@ class LandingsSeeder extends Seeder
                     <body>
                         <h1>Join Us This Christmas</h1>
                         <p>Fill the form below to continue.</p>
-                        <form method="GET">
+                        <form method="GET" action="{{ action }}">
                             <button type="submit">Continue</button>
                         </form>
                     </body>
                     </html>',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'action_url' => 'https://christmas.all/continue'
             ],
             [
                 'campaign_id' => $blackFridayId,
@@ -74,14 +76,15 @@ class LandingsSeeder extends Seeder
                     <body>
                         <h1>Join Us This Black Friday week in USA</h1>
                         <p>Fill the form below to continue this week with us.</p>
-                        <form method="GET">
+                        <form method="GET" action="{{ action }}">
                             <button type="submit">Continue</button>
                         </form>
                     </body>
                     </html>',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'action_url' => 'https://black-friday.us/continue'
             ],
-        ], ['title'], ['country', 'is_catch_all', 'html', 'updated_at']);
+        ], ['title'], ['country', 'is_catch_all', 'html', 'updated_at', 'action_url']);
     }
 }
