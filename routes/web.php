@@ -16,6 +16,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::resource('/campaigns', CampaignController::class)->except(['show']);
     Route::resource('/landings', LandingController::class)->except(['show']);
+    Route::get('/action-clicks', [ActionClickController::class, 'index'])->name('action_clicks.index');
 });
 
 Route::get('/campaigns/{slug}', [PublicCampaignController::class, 'show'])->name('public.campaign.show');
